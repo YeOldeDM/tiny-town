@@ -9,8 +9,11 @@ var hud
 var init_pos = Vector2(160,112)
 var house_width = 144
 var house_gap = 16
+var road_y = 232
 
 var house_selected = false
+
+var buildings = []
 
 func _ready():
 	hud = get_node('/root/Game/HUD')
@@ -30,6 +33,12 @@ func add_house(pos):
 	var house = house_node.instance()
 	house.set_pos(pos)
 	add_child(house)
+	buildings.append(house)
+	
+	pos.y = road_y
+	pos.x += house_width/2
+	var H = get_node('/root/Game/Heroes').spawn_hero(pos)
+	house.occupant = H
 
 func _on_house_selected(pressed,house):
 	var info = hud.get_node('Info')

@@ -3,6 +3,9 @@ extends TextureButton
 
 var own = null
 
+var building_name = "House"
+var occupant = null
+
 func _ready():
 	if get_parent():
 		own = get_parent()
