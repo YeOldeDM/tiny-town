@@ -5,9 +5,9 @@
 	<ext_resource path="res://graphics/lilPeeps-bodies.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-faces.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://hero/hero_doll.gd" type="Script" index="1"></ext_resource>
-	<ext_resource path="res://graphics/lilPeeps-weapons.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-hair.png" type="Texture" index="7"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-eyes.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://graphics/lilPeeps-weapons.png" type="Texture" index="4"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -48,13 +48,13 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -87.8886, -39.2367 </vector2>
+							<vector2> -182.295, -122.731 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -74,7 +74,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 3.424786 </real>
+							<real> 2.050546 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
