@@ -26,6 +26,10 @@ func add_slot(pos):
 	add_child(house)
 	#house._ready()
 	
+func add_house(pos):
+	var house = house_node.instance()
+	house.set_pos(pos)
+	add_child(house)
 
 func _on_house_selected(pressed,house):
 	var info = hud.get_node('Info')
