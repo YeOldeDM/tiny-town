@@ -74,7 +74,7 @@ func _process(delta):
 func track_to_target(delta):
 	var pos = get_pos()
 	var c_pos = get_node('center').get_global_pos()
-	printt(c_pos.x,tracking_target)
+
 	if tracking_target - 10 < c_pos.x and tracking_target + 10 > c_pos.x:
 		pos.x = tracking_target
 		is_tracking = false

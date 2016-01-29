@@ -43,6 +43,7 @@ func add_house(pos,number):
 	var H = get_node('/root/Game/Heroes').spawn_hero(pos)
 	house.occupant = H
 	H.house = house
+	house.set_head()
 
 func _on_house_selected(pressed,house):
 	var info = hud.get_node('Info')

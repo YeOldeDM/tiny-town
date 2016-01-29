@@ -38,12 +38,12 @@ var face
 var eyes
 var hair
 
-var our_body
-var our_armor
-var our_weapon
-var our_face
-var our_eyes
-var our_hair
+#var our_body
+#var our_armor
+#var our_weapon
+#var our_face
+#var our_eyes
+#var our_hair
 
 var body_ops = 1
 var armor_ops = 4

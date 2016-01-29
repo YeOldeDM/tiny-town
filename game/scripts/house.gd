@@ -17,6 +17,8 @@ func _ready():
 	door_pos.x += 72
 	door_pos.y = 232
 	
+	get_node('build_dust').set_emitting(true)
+	
 
 func set_info_slot_number():
 	var label = get_node('Info/slot_number')
@@ -42,6 +44,13 @@ func _on_TextureButton_mouse_enter():
 	if not own.house_selected:
 		set_info_show(true)
 
+func set_head():
+	print(occupant.doll.face)
+	var face = occupant.doll.face.get_frame()
+	var eyes = occupant.doll.eyes.get_frame()
+	var hair = occupant.doll.hair.get_frame()
+	get_node('Info/Head').set_head(face,eyes,hair)
+	get_node('Info/Head').show()
 
 func set_info_show(show):
 	if show == true:
@@ -52,3 +61,11 @@ func set_info_show(show):
 func _on_TextureButton_mouse_exit():
 	if not is_pressed():
 		set_info_show(false)
+
+
+func _on_VisibilityNotifier2D_exit_screen():
+	if is_pressed():
+		print("HID")
+		set_pressed(false)
+		set_info_show(false)
+
