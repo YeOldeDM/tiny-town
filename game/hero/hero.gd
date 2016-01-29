@@ -6,7 +6,7 @@ var WALK_SPEED = 60.0
 var doll
 var house
 
-var current_state = 'move'
+var current_state = 'idle'
 var target_pos = int(round(rand_range(64,1024)))
 
 var decision_timer = 0

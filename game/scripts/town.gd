@@ -53,7 +53,7 @@ func _on_house_selected(pressed,house):
 				other_house.set_pressed(false)
 				other_house.set_info_show(false)
 	
-	if pressed:
-		info.show()
-	else:
-		info.hide()
+#	if pressed:
+#		info.show()
+#	else:
+#		info.hide()

@@ -32,6 +32,7 @@ func _on_TextureButton_toggled( pressed ):
 	if pressed:
 		set_info_show(true)
 		own.house_selected = true
+		get_node('/root/Game').set_camera_tracking_target(self)
 	else:
 		own.house_selected = false
 

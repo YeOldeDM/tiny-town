@@ -20,5 +20,9 @@ func _input(event):
 				get_node('Title').queue_free()
 		
 	
+func set_camera_tracking_target(target):
+	var t_x = target.get_global_pos().x + (target.get_rect().size.width/2)
+	get_node('Camera').tracking_target = t_x
+	get_node('Camera').is_tracking = true
 
 
