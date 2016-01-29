@@ -5,11 +5,23 @@ var own = null
 
 var building_name = "House"
 var occupant = null
+var slot_number
+
+var door_pos
 
 func _ready():
 	if get_parent():
 		own = get_parent()
+	
+	door_pos = get_pos()
+	door_pos.x += 72
+	door_pos.y = 232
+	
 
+func set_info_slot_number():
+	var label = get_node('Info/slot_number')
+	var txt = "slot "+str(slot_number)
+	label.set_text(txt)
 
 
 func _on_TextureButton_toggled( pressed ):

@@ -5,9 +5,9 @@
 	<ext_resource path="res://graphics/lilPeeps-bodies.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-faces.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://hero/hero_doll.gd" type="Script" index="1"></ext_resource>
-	<ext_resource path="res://graphics/lilPeeps-hair.png" type="Texture" index="7"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-eyes.png" type="Texture" index="6"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-weapons.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://graphics/lilPeeps-hair.png" type="Texture" index="7"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -48,7 +48,7 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>

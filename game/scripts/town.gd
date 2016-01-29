@@ -21,17 +21,20 @@ func _ready():
 	for i in range(12):
 		var pos = init_pos
 		pos.x += i*(house_width+house_gap)
-		add_slot(pos)
+		add_slot(pos,i)
 
-func add_slot(pos):
+func add_slot(pos,number):
 	var house = slot_node.instance()
 	house.set_pos(pos)
+	house.slot_number = number
 	add_child(house)
 	#house._ready()
 	
-func add_house(pos):
+func add_house(pos,number):
 	var house = house_node.instance()
 	house.set_pos(pos)
+	house.slot_number = number
+	house.set_info_slot_number()
 	add_child(house)
 	buildings.append(house)
 	
@@ -39,6 +42,7 @@ func add_house(pos):
 	pos.x += house_width/2
 	var H = get_node('/root/Game/Heroes').spawn_hero(pos)
 	house.occupant = H
+	H.house = house
 
 func _on_house_selected(pressed,house):
 	var info = hud.get_node('Info')
