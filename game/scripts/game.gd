@@ -17,6 +17,7 @@ func _input(event):
 			if not START:
 				START = true
 				get_node('pressdown').queue_free()
+				get_node('Title').queue_free()
 		
 	
 
