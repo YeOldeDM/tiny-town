@@ -38,19 +38,14 @@ var face
 var eyes
 var hair
 
-#var our_body
-#var our_armor
-#var our_weapon
-#var our_face
-#var our_eyes
-#var our_hair
-
 var body_ops = 1
 var armor_ops = 4
 var weapon_ops = 7
 var face_ops = 4
 var eyes_ops = 6
 var hair_ops = 9
+
+var hair_color = Color(1,1,1)
 
 var com
 
@@ -73,6 +68,32 @@ func make_random_doll():
 	set_face(com.get_random(0,face_ops))
 	set_eyes(com.get_random(0,eyes_ops))
 	set_hair(com.get_random(0,hair_ops))
+	randomize()
+	var r = randf()
+	var g = randf()
+	var b = randf()
+	set_hair_color(Color(r,g,b))
+
+func get_body():
+	return body.get_frame()
+
+func get_armor():
+	return armor.get_frame()
+
+func get_weapon():
+	return weapon.get_frame()
+
+func get_face():
+	return face.get_frame()
+
+func get_eyes():
+	return eyes.get_frame()
+
+func get_hair():
+	return hair.get_frame()
+
+func get_hair_color():
+	return hair.get_modulate()
 
 
 func set_body(c):
@@ -93,4 +114,6 @@ func set_eyes(c):
 func set_hair(c):
 	hair.set_frame(c)
 
+func set_hair_color(c):
+	hair.set_modulate(c)
 

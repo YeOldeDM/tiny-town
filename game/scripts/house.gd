@@ -46,10 +46,11 @@ func _on_TextureButton_mouse_enter():
 
 func set_head():
 	print(occupant.doll.face)
-	var face = occupant.doll.face.get_frame()
-	var eyes = occupant.doll.eyes.get_frame()
-	var hair = occupant.doll.hair.get_frame()
-	get_node('Info/Head').set_head(face,eyes,hair)
+	var face = occupant.doll.get_face()
+	var eyes = occupant.doll.get_eyes()
+	var hair = occupant.doll.get_hair()
+	var hair_color = occupant.doll.get_hair_color()
+	get_node('Info/Head').set_head(face,eyes,hair,hair_color)
 	get_node('Info/Head').show()
 
 func set_info_show(show):
