@@ -6,11 +6,16 @@ var WALK_SPEED = 60.0
 var doll
 var house
 
+var relations = []
+
 var current_state = 'idle'
 var target_pos = int(round(rand_range(64,1024)))
 
 var decision_timer = 0
 var decision_timeout
+
+var step_timer = 0
+var step_timeout = 0.1
 
 func _ready():
 	doll = get_node('Doll')
@@ -26,8 +31,16 @@ func _process(delta):
 			pos = target_pos
 			current_state = 'idle'
 			decision_timer = 0
+			stand_still()
 		else:
 			_move(delta)
+			
+			if step_timer >= step_timeout:
+				step()
+				step_timer = 0
+			else:
+				step_timer += delta
+			
 	if current_state == 'idle':
 		if decision_timer >= decision_timeout:
 			set_random_target_pos()
@@ -37,6 +50,7 @@ func _process(delta):
 		else:
 			decision_timer += delta
 
+	
 
 func _move(delta):
 	var pos = get_pos()
@@ -57,3 +71,23 @@ func set_random_decision_timeout():
 
 func set_random_walk_speed():
 	WALK_SPEED = rand_range(50,70)
+	
+func stand_still():
+	doll.set_pos(Vector2(0,0))
+	doll.set_rot(0)
+
+func step():
+	var height = doll.get_pos()
+	if height.y < 0:
+		height.y = 0
+	else:
+		height.y = -rand_range(1,3)
+	var r_dir = randf()
+	var r = 0
+	if r_dir <= 0.5:
+		r = rand_range(deg2rad(350),deg2rad(355))
+	else:
+		r = rand_range(deg2rad(5),deg2rad(10))
+	doll.set_rot(r)
+	doll.set_pos(height)
+	
