@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="9" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+<resource_file type="PackedScene" subresource_count="11" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://hero/hero.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://hero/hero_doll.gd" type="Script" index="1"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-faces.png" type="Texture" index="5"></ext_resource>
@@ -8,6 +8,12 @@
 	<ext_resource path="res://graphics/lilPeeps-weapons.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://graphics/lilpeeps-armors.png" type="Texture" index="3"></ext_resource>
 	<ext_resource path="res://graphics/lilPeeps-bodies.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://graphics/dropshadow.png" type="Texture" index="8"></ext_resource>
+	<resource type="RectangleShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 10, 15 </vector2>
+
+	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -18,12 +24,27 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="16">
+			<string_array  len="42">
 				<string> "Hero" </string>
+				<string> "input/pickable" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "constant_linear_velocity" </string>
+				<string> "constant_angular_velocity" </string>
+				<string> "friction" </string>
+				<string> "bounce" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
-				<string> "Node2D" </string>
+				<string> "StaticBody2D" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "_update_shape_index" </string>
 				<string> "Doll" </string>
+				<string> "Node2D" </string>
 				<string> "Body" </string>
 				<string> "texture" </string>
 				<string> "hframes" </string>
@@ -35,16 +56,34 @@
 				<string> "Face" </string>
 				<string> "Eyes" </string>
 				<string> "Hair" </string>
+				<string> "shadow" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/behind_parent" </string>
+				<string> "transform/scale" </string>
+				<string> "cast_left" </string>
+				<string> "enabled" </string>
+				<string> "cast_to" </string>
+				<string> "layer_mask" </string>
+				<string> "type_mask" </string>
+				<string> "RayCast2D" </string>
+				<string> "cast_right" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 8 </int>
+			<int> 12 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="100"> 				-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 3, 4, -1, 1, 1, 2, 0, 1, 0, 8, 5, -1, 2, 6, 3, 7, 4, 0, 1, 0, 8, 9, -1, 3, 6, 5, 10, 6, 7, 7, 0, 1, 0, 8, 11, -1, 4, 12, 8, 6, 9, 10, 6, 7, 10, 0, 1, 0, 8, 13, -1, 3, 12, 11, 6, 12, 7, 4, 0, 1, 0, 8, 14, -1, 3, 12, 11, 6, 13, 7, 14, 0, 1, 0, 8, 15, -1, 4, 12, 11, 6, 15, 10, 6, 7, 4, 0 </int_array>
+			<int_array  len="184"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 1, 3, 2, 4, 0, 5, 3, 6, 3, 7, 4, 8, 5, 9, 6, 10, 5, 11, 7, 12, 8, 0, 0, 0, 14, 14, -1, 3, 15, 1, 16, 0, 17, 9, 0, 0, 0, 19, 18, -1, 1, 11, 10, 0, 2, 0, 23, 20, -1, 2, 21, 11, 22, 12, 0, 2, 0, 23, 24, -1, 3, 21, 13, 25, 14, 22, 15, 0, 2, 0, 23, 26, -1, 4, 27, 16, 21, 17, 25, 14, 22, 18, 0, 2, 0, 23, 28, -1, 3, 27, 19, 21, 20, 22, 12, 0, 2, 0, 23, 29, -1, 3, 27, 19, 21, 21, 22, 22, 0, 2, 0, 23, 30, -1, 4, 27, 19, 21, 23, 25, 14, 22, 12, 0, 0, 0, 23, 31, -1, 5, 32, 24, 33, 25, 27, 26, 34, 27, 21, 28, 0, 0, 0, 40, 35, -1, 5, 27, 29, 36, 25, 37, 30, 38, 3, 39, 31, 0, 0, 0, 40, 41, -1, 5, 27, 16, 36, 25, 37, 32, 38, 3, 39, 31, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="16" shared="false">
+			<array  len="33" shared="false">
+				<bool> False </bool>
+				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<int> 1 </int>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<real> 1 </real>
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -182,6 +221,7 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<int> 0 </int>
 				<resource  external="1">  </resource>
 				<resource  external="2">  </resource>
 				<int> 5 </int>
@@ -196,6 +236,15 @@
 				<resource  external="6">  </resource>
 				<int> 7 </int>
 				<resource  external="7">  </resource>
+				<real> 0.5 </real>
+				<bool> True </bool>
+				<vector2> 0, 14 </vector2>
+				<vector2> 1.5, 1 </vector2>
+				<resource  external="8">  </resource>
+				<vector2> -12, 0 </vector2>
+				<vector2> -4, 0 </vector2>
+				<int> 15 </int>
+				<vector2> 4, 0 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

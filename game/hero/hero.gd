@@ -1,10 +1,13 @@
 
-extends Node2D
+extends StaticBody2D
 
 var WALK_SPEED = 60.0
 
 var doll
 var house
+
+var left_cast
+var right_cast
 
 var relations = []
 
@@ -19,11 +22,22 @@ var step_timeout = 0.1
 
 func _ready():
 	doll = get_node('Doll')
+	left_cast = get_node('cast_left')
+	right_cast = get_node('cast_right')
 	set_random_decision_timeout()
 	set_random_walk_speed()
 	set_process(true)
 	
 func _process(delta):
+	if left_cast.is_colliding():
+		var col = left_cast.get_collider()
+		if col extends get_script():
+			current_state = 'idle'
+	if right_cast.is_colliding():
+		var col = right_cast.get_collider()
+		if col extends get_script():
+			current_state = 'idle'
+
 	if current_state == 'move':
 		var pos = get_pos().x
 
@@ -31,7 +45,6 @@ func _process(delta):
 			pos = target_pos
 			current_state = 'idle'
 			decision_timer = 0
-			stand_still()
 		else:
 			_move(delta)
 			
@@ -40,11 +53,13 @@ func _process(delta):
 				step_timer = 0
 			else:
 				step_timer += delta
-			
+
 	if current_state == 'idle':
+		stand_still()
 		if decision_timer >= decision_timeout:
 			set_random_target_pos()
 			set_random_decision_timeout()
+			set_random_walk_speed()
 			decision_timer = 0
 			current_state = 'move'
 		else:
@@ -57,9 +72,13 @@ func _move(delta):
 	if target_pos < pos.x:
 		pos.x -= delta*WALK_SPEED
 		set_scale(Vector2(-1,1))
+		left_cast.set_enabled(true)
+		right_cast.set_enabled(false)
 	elif target_pos > pos.x:
 		pos.x += delta*WALK_SPEED
 		set_scale(Vector2(1,1))
+		left_cast.set_enabled(false)
+		right_cast.set_enabled(true)
 	set_pos(pos)
 		
 
@@ -70,7 +89,8 @@ func set_random_decision_timeout():
 	decision_timeout = rand_range(1,4)
 
 func set_random_walk_speed():
-	WALK_SPEED = rand_range(50,70)
+	WALK_SPEED = rand_range(30,70)
+	step_timeout = 1.0 - (WALK_SPEED * 0.01)
 	
 func stand_still():
 	doll.set_pos(Vector2(0,0))
