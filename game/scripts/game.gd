@@ -6,6 +6,7 @@ var START = false
 
 
 func _ready():
+	print(PI)
 	START_POS.y = get_node('Camera/cam').get_limit(1)
 	get_node('Camera').set_pos(START_POS)
 	

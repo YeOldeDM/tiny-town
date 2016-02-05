@@ -46,6 +46,7 @@ var eyes_ops = 6
 var hair_ops = 9
 
 var hair_color = Color(1,1,1)
+var skin_color = Color(1,1,1)
 
 var com
 
@@ -73,6 +74,8 @@ func make_random_doll():
 	var g = randf()
 	var b = randf()
 	set_hair_color(Color(r,g,b))
+	var s = randf()+0.2
+	set_skin_color(Color(s,s,s))
 
 func get_body():
 	return body.get_frame()
@@ -117,3 +120,6 @@ func set_hair(c):
 func set_hair_color(c):
 	hair.set_modulate(c)
 
+func set_skin_color(c):
+	body.set_modulate(c)
+	face.set_modulate(c)

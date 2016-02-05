@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="15" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://scenes/background.scn" type="PackedScene" index="10"></ext_resource>
+<resource_file type="PackedScene" subresource_count="16" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://scripts/town.gd" type="Script" index="4"></ext_resource>
-	<ext_resource path="res://fonts/standard_large.fnt" type="Font" index="7"></ext_resource>
+	<ext_resource path="res://fonts/standard_large.fnt" type="Font" index="8"></ext_resource>
 	<ext_resource path="res://scripts/game.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://scripts/heroes.gd" type="Script" index="9"></ext_resource>
+	<ext_resource path="res://scripts/heroes.gd" type="Script" index="10"></ext_resource>
 	<ext_resource path="res://system/camera.gd" type="Script" index="1"></ext_resource>
+	<ext_resource path="res://scenes/foreground.scn" type="PackedScene" index="12"></ext_resource>
+	<ext_resource path="res://fonts/standard.fnt" type="Font" index="7"></ext_resource>
 	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://fonts/standard.fnt" type="Font" index="6"></ext_resource>
 	<ext_resource path="res://tilesets/town.res" type="TileSet" index="3"></ext_resource>
-	<ext_resource path="res://scenes/foreground.scn" type="PackedScene" index="11"></ext_resource>
-	<ext_resource path="res://graphics/button_wild.png" type="Texture" index="8"></ext_resource>
-	<ext_resource path="res://fonts/standard_small.fnt" type="Font" index="5"></ext_resource>
-	<ext_resource path="res://fonts/olde.fnt" type="Font" index="12"></ext_resource>
+	<ext_resource path="res://fonts/olde.fnt" type="Font" index="13"></ext_resource>
+	<ext_resource path="res://fonts/standard_small.fnt" type="Font" index="6"></ext_resource>
+	<ext_resource path="res://graphics/button_wild.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://scenes/background.scn" type="PackedScene" index="11"></ext_resource>
+	<ext_resource path="res://graphics/fog.png" type="Texture" index="5"></ext_resource>
 	<resource type="Environment" path="local://1">
 		<bool name="ambient_light/enabled"> False </bool>
 		<color name="ambient_light/color"> 0, 0, 0, 1 </color>
@@ -36,16 +37,16 @@
 		<bool name="dof_blur/enabled"> False </bool>
 		<int name="dof_blur/blur_passes"> 1 </int>
 		<real name="dof_blur/begin"> 100 </real>
-		<real name="dof_blur/range"> 10 </real>
+		<real name="dof_blur/range"> 5 </real>
 		<bool name="hdr/enabled"> True </bool>
 		<real name="hdr/tonemapper"> 0 </real>
-		<real name="hdr/exposure"> 0.7 </real>
-		<real name="hdr/white"> 0.5 </real>
-		<real name="hdr/glow_treshold"> 1 </real>
-		<real name="hdr/glow_scale"> 2 </real>
-		<real name="hdr/min_luminance"> 0.65 </real>
+		<real name="hdr/exposure"> 0.6 </real>
+		<real name="hdr/white"> 0.01 </real>
+		<real name="hdr/glow_treshold"> 2 </real>
+		<real name="hdr/glow_scale"> 1 </real>
+		<real name="hdr/min_luminance"> 0.5 </real>
 		<real name="hdr/max_luminance"> 4 </real>
-		<real name="hdr/exposure_adj_speed"> 2 </real>
+		<real name="hdr/exposure_adj_speed"> 1 </real>
 		<bool name="fog/enabled"> False </bool>
 		<real name="fog/begin"> 100 </real>
 		<color name="fog/begin_color"> 0, 0, 0, 1 </color>
@@ -69,7 +70,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="91">
+			<string_array  len="94">
 				<string> "Game" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
@@ -134,6 +135,9 @@
 				<string> "rotation" </string>
 				<string> "scale" </string>
 				<string> "CanvasLayer" </string>
+				<string> "transform/scale" </string>
+				<string> "centered" </string>
+				<string> "modulate" </string>
 				<string> "Footbar" </string>
 				<string> "margin/top" </string>
 				<string> "Panel" </string>
@@ -163,24 +167,24 @@
 				<string> "pressdown" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 21 </int>
+			<int> 22 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="499"> 				-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 4, 4, -1, 2, 5, 2, 6, 3, 0, 0, 0, 14, 7, -1, 7, 8, 4, 9, 5, 10, 6, 11, 7, 12, 8, 13, 8, 1, 9, 0, 2, 0, 19, 15, -1, 3, 16, 6, 17, 8, 18, 10, 0, 2, 0, 36, 20, -1, 15, 21, 11, 22, 6, 23, 7, 24, 12, 25, 13, 26, 14, 27, 15, 28, 16, 29, 17, 30, 7, 31, 7, 32, 18, 33, 18, 34, 18, 35, 18, 0, 0, 0, 38, 37, -1, 0, 0, 5, 0, 55, 39, -1, 15, 40, 19, 41, 14, 42, 20, 43, 21, 44, 22, 45, 23, 46, 8, 47, 14, 48, 6, 49, 6, 50, 24, 51, 25, 52, 11, 53, 11, 54, 26, 0, 5, 0, 57, 56, -1, 7, 8, 27, 9, 27, 10, 6, 11, 7, 12, 8, 13, 8, 1, 28, 0, 0, 0, 63, 58, -1, 5, 59, 8, 60, 29, 61, 25, 62, 13, 2, 30, 0, 8, 0, 66, 64, -1, 8, 65, 31, 8, 4, 9, 5, 10, 6, 11, 7, 12, 8, 13, 8, 2, 32, 0, 9, 0, 67, 67, -1, 14, 68, 33, 65, 24, 8, 34, 9, 35, 10, 7, 11, 7, 12, 8, 69, 36, 70, 37, 71, 11, 72, 38, 73, 24, 74, 14, 75, 39, 0, 8, 0, 66, 76, -1, 10, 16, 6, 17, 8, 65, 40, 8, 41, 9, 31, 10, 6, 11, 7, 12, 8, 13, 8, 2, 42, 0, 11, 0, 67, 77, -1, 14, 68, 33, 8, 40, 9, 43, 10, 7, 11, 7, 12, 8, 69, 44, 70, 45, 71, 11, 72, 46, 78, 11, 73, 24, 74, 14, 75, 39, 0, 11, 0, 67, 79, -1, 16, 68, 33, 8, 40, 9, 43, 10, 7, 11, 7, 12, 8, 69, 47, 80, 48, 70, 45, 71, 11, 72, 49, 81, 8, 78, 11, 73, 24, 74, 14, 75, 39, 0, 11, 0, 82, 82, -1, 7, 65, 33, 8, 41, 9, 50, 10, 6, 11, 7, 12, 8, 13, 8, 0, 8, 0, 86, 83, -1, 10, 16, 6, 65, 51, 8, 52, 9, 31, 10, 6, 11, 7, 12, 8, 13, 8, 84, 6, 85, 53, 0, 0, 0, 57, 87, -1, 7, 8, 27, 9, 27, 10, 6, 11, 7, 12, 8, 13, 8, 1, 54, 0, 0, 0, 2147483647, 88, 55, 0, 0, 0, 0, 2147483647, 89, 56, 0, 0, 0, 0, 67, 77, -1, 17, 68, 33, 65, 57, 8, 58, 9, 59, 10, 7, 11, 7, 12, 8, 69, 60, 80, 61, 70, 62, 71, 11, 72, 63, 81, 8, 78, 11, 73, 24, 74, 14, 75, 39, 0, 0, 0, 67, 90, -1, 17, 68, 33, 65, 33, 8, 64, 9, 65, 10, 7, 11, 7, 12, 8, 69, 47, 80, 66, 70, 62, 71, 11, 72, 67, 81, 11, 78, 11, 73, 24, 74, 14, 75, 39, 0 </int_array>
+			<int_array  len="510"> 				-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 4, 4, -1, 2, 5, 2, 6, 3, 0, 0, 0, 14, 7, -1, 7, 8, 4, 9, 5, 10, 6, 11, 7, 12, 8, 13, 8, 1, 9, 0, 2, 0, 19, 15, -1, 3, 16, 6, 17, 8, 18, 10, 0, 2, 0, 36, 20, -1, 15, 21, 11, 22, 6, 23, 7, 24, 12, 25, 13, 26, 14, 27, 15, 28, 16, 29, 17, 30, 7, 31, 7, 32, 18, 33, 18, 34, 18, 35, 18, 0, 0, 0, 38, 37, -1, 0, 0, 5, 0, 55, 39, -1, 15, 40, 19, 41, 14, 42, 20, 43, 21, 44, 22, 45, 23, 46, 8, 47, 14, 48, 6, 49, 6, 50, 24, 51, 25, 52, 11, 53, 11, 54, 26, 0, 5, 0, 57, 56, -1, 7, 8, 27, 9, 27, 10, 6, 11, 7, 12, 8, 13, 8, 1, 28, 0, 0, 0, 63, 58, -1, 4, 59, 8, 60, 29, 61, 25, 62, 13, 0, 8, 0, 19, 19, -1, 4, 64, 30, 18, 31, 65, 6, 66, 32, 0, 8, 0, 69, 67, -1, 8, 68, 33, 8, 4, 9, 5, 10, 6, 11, 7, 12, 8, 13, 8, 2, 34, 0, 10, 0, 70, 70, -1, 14, 71, 35, 68, 24, 8, 36, 9, 37, 10, 7, 11, 7, 12, 8, 72, 38, 73, 39, 74, 11, 75, 40, 76, 24, 77, 14, 78, 41, 0, 8, 0, 69, 79, -1, 10, 16, 6, 17, 8, 68, 42, 8, 43, 9, 33, 10, 6, 11, 7, 12, 8, 13, 8, 2, 44, 0, 12, 0, 70, 80, -1, 14, 71, 35, 8, 42, 9, 45, 10, 7, 11, 7, 12, 8, 72, 46, 73, 47, 74, 11, 75, 48, 81, 11, 76, 24, 77, 14, 78, 41, 0, 12, 0, 70, 82, -1, 16, 71, 35, 8, 42, 9, 45, 10, 7, 11, 7, 12, 8, 72, 49, 83, 50, 73, 47, 74, 11, 75, 51, 84, 8, 81, 11, 76, 24, 77, 14, 78, 41, 0, 12, 0, 85, 85, -1, 7, 68, 35, 8, 43, 9, 52, 10, 6, 11, 7, 12, 8, 13, 8, 0, 8, 0, 89, 86, -1, 10, 16, 6, 68, 53, 8, 54, 9, 33, 10, 6, 11, 7, 12, 8, 13, 8, 87, 6, 88, 55, 0, 0, 0, 57, 90, -1, 7, 8, 27, 9, 27, 10, 6, 11, 7, 12, 8, 13, 8, 1, 56, 0, 0, 0, 2147483647, 91, 57, 0, 0, 0, 0, 2147483647, 92, 58, 0, 0, 0, 0, 70, 80, -1, 16, 68, 45, 8, 59, 9, 60, 10, 7, 11, 7, 12, 8, 72, 61, 83, 62, 73, 63, 74, 11, 75, 64, 84, 8, 81, 11, 76, 24, 77, 14, 78, 41, 0, 0, 0, 70, 93, -1, 17, 71, 65, 68, 66, 8, 67, 9, 68, 10, 7, 11, 7, 12, 8, 72, 49, 83, 69, 73, 63, 74, 11, 75, 70, 84, 8, 81, 11, 76, 24, 77, 14, 78, 41, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="68" shared="false">
+			<array  len="71" shared="false">
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "3D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -146.362, -60.1563 </vector2>
+							<vector2> -48.5254, -21.9496 </vector2>
 							<string> "snap_grid" </string>
 							<bool> True </bool>
 							<string> "snap_offset" </string>
@@ -200,7 +204,7 @@
 							<string> "snap_step" </string>
 							<vector2> 16, 8 </vector2>
 							<string> "zoom" </string>
-							<real> 1.227738 </real>
+							<real> 1.850619 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -226,7 +230,7 @@
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
 									<string> "distance" </string>
-									<real> 3.429356 </real>
+									<real> 1.000996 </real>
 									<string> "listener" </string>
 									<bool> True </bool>
 									<string> "pos" </string>
@@ -236,9 +240,9 @@
 									<string> "use_orthogonal" </string>
 									<bool> False </bool>
 									<string> "x_rot" </string>
-									<real> 0.3 </real>
+									<real> 0.325 </real>
 									<string> "y_rot" </string>
-									<real> 0.5875 </real>
+									<real> 0.825 </real>
 								</dictionary>
 								<dictionary  shared="false">
 									<string> "distance" </string>
@@ -336,10 +340,9 @@
 				<real> 40 </real>
 				<resource  external="4">  </resource>
 				<vector2> 0, 0 </vector2>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
+				<vector2> 2, 2 </vector2>
+				<resource  external="5">  </resource>
+				<color> 0.0326705, 0.0705492, 0.128421, 0.0829308 </color>
 				<real> 288 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
@@ -348,7 +351,7 @@
 				<real> 16 </real>
 				<real> 142 </real>
 				<real> 14 </real>
-				<resource  external="5">  </resource>
+				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 0.41524 </color>
 				<string> "Tiny Towns: pre-alpha" </string>
 				<int> -1 </int>
@@ -359,28 +362,29 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 24 </real>
-				<resource  external="6">  </resource>
+				<resource  external="7">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "House" </string>
-				<resource  external="7">  </resource>
+				<resource  external="8">  </resource>
 				<color> 0.839015, 0.737216, 0, 1 </color>
 				<string> "$1,430" </string>
 				<real> 32 </real>
 				<real> 224 </real>
 				<real> 64 </real>
-				<resource  external="8">  </resource>
 				<resource  external="9">  </resource>
 				<resource  external="10">  </resource>
 				<resource  external="11">  </resource>
-				<real> -56 </real>
-				<real> 384 </real>
-				<real> -15 </real>
 				<resource  external="12">  </resource>
+				<real> 368 </real>
+				<real> 65 </real>
+				<resource  external="13">  </resource>
 				<color> 0.419981, 0.627367, 1, 1 </color>
 				<color> 0, 0, 0, 0.974796 </color>
 				<string> "Tiny Town" </string>
-				<real> 240 </real>
-				<real> 57 </real>
+				<real> -16 </real>
+				<real> 48 </real>
+				<real> 336 </real>
+				<real> 89 </real>
 				<color> 1, 1, 0.0898979, 1 </color>
 				<string> "Press Down" </string>
 			</array>
