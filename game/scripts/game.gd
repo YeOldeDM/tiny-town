@@ -24,6 +24,10 @@ func _input(event):
 func set_camera_tracking_target(target):
 	var t_x = target.get_global_pos().x + (target.get_rect().size.width/2)
 	get_node('Camera').tracking_target = t_x
+	get_node('Camera').tracking_object = null
 	get_node('Camera').is_tracking = true
 
-
+func set_camera_tracking_object(target):
+	get_node('Camera').tracking_object = target
+	get_node('Camera').tracking_target = null
+	get_node('Camera').is_tracking = true

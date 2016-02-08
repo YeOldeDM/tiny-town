@@ -39,7 +39,7 @@ var eyes
 var hair
 
 var body_ops = 1
-var armor_ops = 4
+var armor_ops = 3
 var weapon_ops = 7
 var face_ops = 4
 var eyes_ops = 6
@@ -64,7 +64,7 @@ func _ready():
 
 func make_random_doll():
 	set_body(com.get_random(0,body_ops))
-	set_armor(com.get_random(0,armor_ops))
+	set_armor(ARMOR_ADVENTURE)#(com.get_random(0,armor_ops))
 	set_weapon(com.get_random(0,weapon_ops))
 	set_face(com.get_random(0,face_ops))
 	set_eyes(com.get_random(0,eyes_ops))
@@ -74,8 +74,8 @@ func make_random_doll():
 	var g = randf()
 	var b = randf()
 	set_hair_color(Color(r,g,b))
-	var s = randf()+0.2
-	set_skin_color(Color(s,s,s))
+	#var s = randf()+0.2
+	#set_skin_color(Color(s,s,s))
 
 func get_body():
 	return body.get_frame()

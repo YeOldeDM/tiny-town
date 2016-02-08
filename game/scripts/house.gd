@@ -70,3 +70,7 @@ func _on_VisibilityNotifier2D_exit_screen():
 		set_pressed(false)
 		set_info_show(false)
 
+
+
+func _on_TextureButton_pressed():
+	get_node('/root/Game').set_camera_tracking_object(occupant)

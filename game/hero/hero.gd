@@ -1,9 +1,12 @@
 
 extends StaticBody2D
 
+var hero_class
+
 var WALK_SPEED = 60.0
 
 var doll
+var hero
 var house
 
 var left_cast
@@ -21,13 +24,15 @@ var step_timer = 0
 var step_timeout = 0.1
 
 func _ready():
+	hero_class = get_node('/root/hero').Hero
 	doll = get_node('Doll')
 	left_cast = get_node('cast_left')
 	right_cast = get_node('cast_right')
 	set_random_decision_timeout()
 	set_random_walk_speed()
 	set_process(true)
-	
+	hero = hero_class.new()
+
 func _process(delta):
 	if left_cast.is_colliding():
 		var col = left_cast.get_collider()
@@ -111,3 +116,7 @@ func step():
 	doll.set_rot(r)
 	doll.set_pos(height)
 	
+
+func _on_selector_pressed():
+	get_node('/root/Game').set_camera_tracking_object(self)
+

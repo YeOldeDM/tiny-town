@@ -6,7 +6,8 @@ var slot_node = preload('res://scenes/building_slot.scn')
 
 var hud
 
-var init_pos = Vector2(160,112)
+var edge_buffer = 160
+var slots_no = 32
 var house_width = 144
 var house_gap = 16
 var road_y = 232
@@ -17,9 +18,17 @@ var buildings = []
 
 func _ready():
 	hud = get_node('/root/Game/HUD')
-
-	for i in range(12):
-		var pos = init_pos
+	var town_width = (edge_buffer*2) + (house_width*slots_no) + (house_gap*(slots_no-4))
+	get_node('/root/Game/Camera/cam').set_limit(2,town_width)
+	get_node('/root/Game/Camera')._ready()
+	
+	var road = get_node('/root/Game/World/Road')
+	var road_cells = int(town_width/64)
+	for i in range(road_cells):
+		road.set_cell(i,3,0)
+	
+	for i in range(slots_no):
+		var pos = Vector2(edge_buffer, 112)
 		pos.x += i*(house_width+house_gap)
 		add_slot(pos,i)
 

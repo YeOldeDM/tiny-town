@@ -14,6 +14,7 @@ var cam_max = Vector2(0,0)
 var speed = 5.0
 
 var tracking_target = null
+var tracking_object = null
 var is_tracking = false
 
 func _ready():
@@ -43,17 +44,25 @@ func _process(delta):
 	var pos = get_pos()
 	
 	if is_tracking:
-		if tracking_target:
+		if tracking_object:
+			tracking_target = null
+			track_to_object(delta)
+			
+		elif tracking_target:
 			track_to_target(delta)
 		else:
 			is_tracking = false
+
+		if DRAG or UP or DOWN or LEFT or RIGHT:
+			if tracking_object:
+				tracking_object = null
 	else:
 		if DRAG:
 			var screen_x = get_viewport().get_rect().size.width
 			var mouse_x = get_viewport().get_mouse_pos().x
 			var drag_factor = ( ( (screen_x/2) + mouse_x ) - screen_x ) / (screen_x/2)
 			pos.x += speed*drag_factor
-		
+			
 		else:
 			if LEFT:
 				pos.x -= speed
@@ -70,6 +79,20 @@ func _process(delta):
 		pos.y = clamp(pos.y, cam_min.y, cam_max.y)
 	
 		set_pos(pos)
+
+func track_to_object(delta):
+	var pos = get_pos()
+	var c_pos = get_node('center').get_global_pos()
+	var t_x = tracking_object.get_global_pos().x
+	
+	if t_x - 10 < c_pos.x and t_x + 10 > c_pos.x:
+		pos.x = t_x
+	else:
+		if t_x < c_pos.x:
+			pos.x -= speed
+		elif t_x > c_pos.x:
+			pos.x += speed
+	set_pos(pos)
 
 func track_to_target(delta):
 	var pos = get_pos()
