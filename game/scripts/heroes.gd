@@ -18,3 +18,9 @@ func _ready():
 	pass
 
 
+func _on_hero_selected(hero):
+	for other_hero in heroes:
+		if other_hero != hero:
+			other_hero.hide_bubble()
+		else:
+			other_hero.show_bubble()

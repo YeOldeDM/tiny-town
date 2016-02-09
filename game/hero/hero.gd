@@ -8,6 +8,7 @@ var hero_class
 var WALK_SPEED = 60.0
 var x_limit = 0
 
+var bubble
 var doll
 var hero
 var house
@@ -31,6 +32,8 @@ func _ready():
 	get_node('nametag').set_text(hero_name)
 	hero_class = get_node('/root/hero').Hero
 	doll = get_node('Doll')
+	bubble = get_node('bubble')
+	bubble.get_node('cont/name').set_text(hero_name)
 	left_cast = get_node('cast_left')
 	right_cast = get_node('cast_right')
 	set_random_decision_timeout()
@@ -39,14 +42,14 @@ func _ready():
 	hero = hero_class.new()
 
 func _process(delta):
-	if left_cast.is_colliding():
-		var col = left_cast.get_collider()
-		if col extends get_script():
-			current_state = 'idle'
-	if right_cast.is_colliding():
-		var col = right_cast.get_collider()
-		if col extends get_script():
-			current_state = 'idle'
+#	if left_cast.is_colliding():
+#		var col = left_cast.get_collider()
+#		if col extends get_script():
+#			current_state = 'idle'
+#	if right_cast.is_colliding():
+#		var col = right_cast.get_collider()
+#		if col extends get_script():
+#			current_state = 'idle'
 
 	if current_state == 'move':
 		var pos = get_pos().x
@@ -120,8 +123,14 @@ func step():
 		r = rand_range(deg2rad(5),deg2rad(10))
 	doll.set_rot(r)
 	doll.set_pos(height)
-	
+
+func show_bubble():
+	bubble.show()
+
+func hide_bubble():
+	bubble.hide()
 
 func _on_selector_pressed():
 	get_node('/root/Game').set_camera_tracking_object(self)
+	get_parent()._on_hero_selected(self)
 

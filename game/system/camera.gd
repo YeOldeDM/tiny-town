@@ -55,6 +55,8 @@ func _process(delta):
 
 		if DRAG or UP or DOWN or LEFT or RIGHT:
 			if tracking_object:
+				if tracking_object.has_method('hide_bubble'):
+					tracking_object.hide_bubble()
 				tracking_object = null
 	else:
 		if DRAG:

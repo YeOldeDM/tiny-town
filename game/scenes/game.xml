@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="16" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://fonts/standard_large.fnt" type="Font" index="8"></ext_resource>
-	<ext_resource path="res://scripts/heroes.gd" type="Script" index="10"></ext_resource>
-	<ext_resource path="res://scripts/town.gd" type="Script" index="4"></ext_resource>
-	<ext_resource path="res://fonts/standard.fnt" type="Font" index="7"></ext_resource>
-	<ext_resource path="res://scripts/game.gd" type="Script" index="0"></ext_resource>
-	<ext_resource path="res://scenes/foreground.scn" type="PackedScene" index="12"></ext_resource>
 	<ext_resource path="res://system/camera.gd" type="Script" index="1"></ext_resource>
-	<ext_resource path="res://fonts/olde.fnt" type="Font" index="13"></ext_resource>
-	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://tilesets/town.res" type="TileSet" index="3"></ext_resource>
+	<ext_resource path="res://fonts/standard.fnt" type="Font" index="7"></ext_resource>
+	<ext_resource path="res://graphics/fog.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://scripts/town.gd" type="Script" index="4"></ext_resource>
+	<ext_resource path="res://fonts/standard_large.fnt" type="Font" index="8"></ext_resource>
+	<ext_resource path="res://scripts/game.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://scripts/heroes.gd" type="Script" index="10"></ext_resource>
 	<ext_resource path="res://fonts/standard_small.fnt" type="Font" index="6"></ext_resource>
 	<ext_resource path="res://graphics/button_wild.png" type="Texture" index="9"></ext_resource>
-	<ext_resource path="res://graphics/fog.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://tilesets/town.res" type="TileSet" index="3"></ext_resource>
+	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://scenes/foreground.scn" type="PackedScene" index="12"></ext_resource>
 	<ext_resource path="res://scenes/background.scn" type="PackedScene" index="11"></ext_resource>
+	<ext_resource path="res://fonts/olde.fnt" type="Font" index="13"></ext_resource>
 	<resource type="Environment" path="local://1">
 		<bool name="ambient_light/enabled"> False </bool>
 		<color name="ambient_light/color"> 0, 0, 0, 1 </color>
