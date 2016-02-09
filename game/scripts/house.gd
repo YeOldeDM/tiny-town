@@ -20,9 +20,9 @@ func _ready():
 	get_node('build_dust').set_emitting(true)
 	
 
-func set_info_slot_number():
+func set_info():
 	var label = get_node('Info/slot_number')
-	var txt = "slot "+str(slot_number)
+	var txt = occupant.hero_name+"'s House"
 	label.set_text(txt)
 
 

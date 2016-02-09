@@ -1,9 +1,12 @@
 
 extends StaticBody2D
 
+var hero_name = ""
+
 var hero_class
 
 var WALK_SPEED = 60.0
+var x_limit = 0
 
 var doll
 var hero
@@ -15,7 +18,7 @@ var right_cast
 var relations = []
 
 var current_state = 'idle'
-var target_pos = int(round(rand_range(64,1024)))
+var target_pos = set_random_target_pos()
 
 var decision_timer = 0
 var decision_timeout
@@ -24,6 +27,8 @@ var step_timer = 0
 var step_timeout = 0.1
 
 func _ready():
+	hero_name = get_node('/root/nameGen').generate_name()
+	get_node('nametag').set_text(hero_name)
 	hero_class = get_node('/root/hero').Hero
 	doll = get_node('Doll')
 	left_cast = get_node('cast_left')
@@ -76,19 +81,19 @@ func _move(delta):
 	var pos = get_pos()
 	if target_pos < pos.x:
 		pos.x -= delta*WALK_SPEED
-		set_scale(Vector2(-1,1))
+		doll.set_scale(Vector2(-1,1))
 		left_cast.set_enabled(true)
 		right_cast.set_enabled(false)
 	elif target_pos > pos.x:
 		pos.x += delta*WALK_SPEED
-		set_scale(Vector2(1,1))
+		doll.set_scale(Vector2(1,1))
 		left_cast.set_enabled(false)
 		right_cast.set_enabled(true)
 	set_pos(pos)
 		
 
 func set_random_target_pos():
-	target_pos = int(round(rand_range(0,2304)))
+	target_pos = int(round(rand_range(0,x_limit)))
 
 func set_random_decision_timeout():
 	decision_timeout = rand_range(1,4)

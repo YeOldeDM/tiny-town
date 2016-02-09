@@ -38,6 +38,15 @@ var face
 var eyes
 var hair
 
+var doll_data = {
+	'body':	0,
+	'armor':	0,
+	'weapon':	0,
+	'face':		0,
+	'eyes':		0,
+	'hair':		0
+	}
+
 var body_ops = 1
 var armor_ops = 3
 var weapon_ops = 7
@@ -101,21 +110,27 @@ func get_hair_color():
 
 func set_body(c):
 	body.set_frame(c)
+	doll_data['body'] = c
 
 func set_armor(c):
 	armor.set_frame(armors[c][body.get_frame()])
+	doll_data['armor'] = c
 
 func set_weapon(c):
 	weapon.set_frame(c)
+	doll_data['weapon'] = c
 
 func set_face(c):
 	face.set_frame(c)
+	doll_data['face'] = c
 
 func set_eyes(c):
 	eyes.set_frame(c)
+	doll_data['eyes'] = c
 
 func set_hair(c):
 	hair.set_frame(c)
+	doll_data['hair'] = c
 
 func set_hair_color(c):
 	hair.set_modulate(c)

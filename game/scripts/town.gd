@@ -20,10 +20,10 @@ func _ready():
 	hud = get_node('/root/Game/HUD')
 	var town_width = (edge_buffer*2) + (house_width*slots_no) + (house_gap*(slots_no-4))
 	get_node('/root/Game/Camera/cam').set_limit(2,town_width)
-	get_node('/root/Game/Camera')._ready()
+	get_node('/root/Game/Camera')._ready()	#HACK re-init camera to accept new limit
 	
 	var road = get_node('/root/Game/World/Road')
-	var road_cells = int(town_width/64)
+	var road_cells = int(town_width/road.get_cell_size().x)
 	for i in range(road_cells):
 		road.set_cell(i,3,0)
 	
@@ -43,7 +43,7 @@ func add_house(pos,number):
 	var house = house_node.instance()
 	house.set_pos(pos)
 	house.slot_number = number
-	house.set_info_slot_number()
+	
 	add_child(house)
 	buildings.append(house)
 	
@@ -53,6 +53,7 @@ func add_house(pos,number):
 	house.occupant = H
 	H.house = house
 	house.set_head()
+	house.set_info()
 
 func _on_house_selected(pressed,house):
 	var info = hud.get_node('Info')
