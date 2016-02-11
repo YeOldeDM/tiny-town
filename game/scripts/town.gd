@@ -67,8 +67,7 @@ func _on_house_selected(pressed,house):
 			if other_house != house:
 				other_house.set_pressed(false)
 				other_house.set_info_show(false)
-	
-#	if pressed:
-#		info.show()
-#	else:
-#		info.hide()
+	if pressed:
+		get_node('/root/Game').set_interior(house)
+	else:
+		get_node('/root/Game').clear_interior()

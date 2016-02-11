@@ -65,7 +65,7 @@ func _on_VisibilityNotifier2D_exit_screen():
 	if is_pressed():
 		print("HID")
 		set_pressed(false)
-		set_info_show(false)
+		_on_TextureButton_toggled( false )
 
 
 
