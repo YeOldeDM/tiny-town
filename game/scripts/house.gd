@@ -7,6 +7,7 @@ var building_name = "House"
 var occupant = null
 var slot_number
 
+
 var door_pos
 
 func _ready():
@@ -45,13 +46,9 @@ func _on_TextureButton_mouse_enter():
 		set_info_show(true)
 
 func set_head():
-	print(occupant.doll.face)
-	var face = occupant.doll.get_face()
-	var eyes = occupant.doll.get_eyes()
-	var hair = occupant.doll.get_hair()
-	var hair_color = occupant.doll.get_hair_color()
-	get_node('Info/Head').set_head(face,eyes,hair,hair_color)
-	get_node('Info/Head').show()
+	var head = get_node('Info/Head')
+	head.owner = occupant
+	head.draw_head()
 
 func set_info_show(show):
 	if show == true:

@@ -134,6 +134,7 @@ func set_hair(c):
 
 func set_hair_color(c):
 	hair.set_modulate(c)
+	hair_color = c
 
 func set_skin_color(c):
 	body.set_modulate(c)

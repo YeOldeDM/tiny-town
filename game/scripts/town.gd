@@ -55,6 +55,10 @@ func add_house(pos,number):
 	house.set_head()
 	house.set_info()
 
+func get_random_house():
+	var r = int(round(rand_range(0,buildings.size()-1)))
+	return buildings[r]
+
 func _on_house_selected(pressed,house):
 	var info = hud.get_node('Info')
 	

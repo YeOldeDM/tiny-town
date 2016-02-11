@@ -3,14 +3,16 @@ extends StaticBody2D
 
 var hero_name = ""
 
-var hero_class
+var fighter_class
+var mind_class
 
 var WALK_SPEED = 60.0
 var x_limit = 0
 
 var bubble
 var doll
-var hero
+var fighter
+var mind
 var house
 
 var left_cast
@@ -18,6 +20,7 @@ var right_cast
 
 var relations = []
 
+var current_location = 'town'
 var current_state = 'idle'
 var target_pos = set_random_target_pos()
 
@@ -27,19 +30,34 @@ var decision_timeout
 var step_timer = 0
 var step_timeout = 0.1
 
+
+var purse=10 + int(round(rand_range(0,20)))
+
+
 func _ready():
+	#generate and set random hero name
 	hero_name = get_node('/root/nameGen').generate_name()
 	get_node('nametag').set_text(hero_name)
-	hero_class = get_node('/root/hero').Hero
+	#class singletons
+	fighter_class = get_node('/root/fighter').Fighter
+	mind_class = get_node('/root/mind').Mind
+	#children links
 	doll = get_node('Doll')
 	bubble = get_node('bubble')
+	bubble.own = self
 	bubble.get_node('cont/name').set_text(hero_name)
 	left_cast = get_node('cast_left')
 	right_cast = get_node('cast_right')
+	#class init
+	fighter = fighter_class.new()
+	fighter.init()
+	mind = mind_class.new()
+	#AI bootstrap
 	set_random_decision_timeout()
 	set_random_walk_speed()
 	set_process(true)
-	hero = hero_class.new()
+	
+	
 
 func _process(delta):
 #	if left_cast.is_colliding():
@@ -70,7 +88,9 @@ func _process(delta):
 	if current_state == 'idle':
 		stand_still()
 		if decision_timer >= decision_timeout:
-			set_random_target_pos()
+			#set_random_target_pos()
+			var h = get_node('/root/Game').find_random_house()
+			set_house_pos(h)
 			set_random_decision_timeout()
 			set_random_walk_speed()
 			decision_timer = 0
@@ -94,6 +114,9 @@ func _move(delta):
 		right_cast.set_enabled(true)
 	set_pos(pos)
 		
+
+func set_house_pos(house):
+	target_pos = house.door_pos.x
 
 func set_random_target_pos():
 	target_pos = int(round(rand_range(0,x_limit)))
@@ -125,12 +148,12 @@ func step():
 	doll.set_pos(height)
 
 func show_bubble():
+	bubble.set_stats()
 	bubble.show()
 
 func hide_bubble():
 	bubble.hide()
 
 func _on_selector_pressed():
-	get_node('/root/Game').set_camera_tracking_object(self)
-	get_parent()._on_hero_selected(self)
+	get_node('/root/Game').select_hero(self)
 

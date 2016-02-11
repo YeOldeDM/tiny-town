@@ -10,7 +10,9 @@ func spawn_hero(pos):
 	H.set_pos(pos)
 	H.x_limit = get_node('/root/Game/Camera').town_x_limit
 	add_child(H)
+	get_node('/root/Game/HUD').add_hero_button(H)
 	heroes.append(H)
+
 	return H
 	
 func _ready():
@@ -18,9 +20,10 @@ func _ready():
 	pass
 
 
-func _on_hero_selected(hero):
+func hero_selected(hero):
 	for other_hero in heroes:
 		if other_hero != hero:
 			other_hero.hide_bubble()
 		else:
 			other_hero.show_bubble()
+			other_hero.raise()
